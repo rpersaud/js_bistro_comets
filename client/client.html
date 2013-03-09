@@ -52,14 +52,16 @@
 <template name="confirmed">
     <div id="confirmed-reservations" class="row">
       <h2>Confirmed Reservations</h2>
+      {{#each list}}
       <div class="four columns">
         <div class="confirmed-slot {{disabled}}">
           <div class="available-percentage" style="width: {{available-percentage}}%;"></div>
           <div class="time-slot">{{time-slot}}</div>
           <a href="#" class="list-reservations">Reservations</a> <!-- Anchor class "list-reservations" opens dialog with reservations listed (*Extra Credit*) -->
-          <div class="available-number">{{available-number}}</div>
+          <div class="available-number">{{number}}</div>
         </div>
       </div>
+      {{/each}}
     </div>
 </template>
 

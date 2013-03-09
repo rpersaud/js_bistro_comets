@@ -35,3 +35,30 @@ Template.form.events({
 Template.pending.reservations = function() {
   return Reservations.find({status:0});
 }
+
+Template.pending.events({
+  'click  .pending-slot' : function (evt, tpl) {
+    //alert(this._id);
+    //Reservations.update({ status: 1 }, {_id: this._id});
+     Reservations.update({ _id: this._id },
+      {
+          $set: { 'status': 1 },
+      });
+  },
+
+});
+
+Template.confirmed.list = function() {
+  return Reservations.find({status:1});
+
+}
+
+Template.confirmed.events({
+  'click .confirmed-slot': function() {
+     Reservations.update({ _id: this._id },
+      {
+          $set: { 'status': 0 },
+      });
+  }
+
+});
