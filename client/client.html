@@ -5,7 +5,6 @@
   <link href="http://fonts.googleapis.com/css?family=Tangerine:400,700" media="screen" rel="stylesheet" type="text/css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
-<body>
 
 <body>
   {{> form}}
@@ -19,12 +18,12 @@
      <div class="six columns centered">
       <div class="form-wrapper">
         <h3>Enter a Reservation</h3>
-        <form>
-          <input type="text" name="name" placeholder="Name" />
-          <input type="tel" name="phone" placeholder="Phone Number" />
-          <input type="text" name="number" placeholder="Number in Party" />
+        <div>
+          <input type="text" id="name" name="name" placeholder="Name" />
+          <input type="tel" id="phone" name="phone" placeholder="Phone Number" />
+          <input type="text" id="number" name="number" placeholder="Number in Party" />
           <button type="submit" id="form-submit" class="button radius medium eight columns offset-by-four">Add Reservation</button>
-        </form>
+        </div>
       </div>
     </div>
   </div>

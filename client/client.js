@@ -1,18 +1,21 @@
+Reservations = new Meteor.Collection('reservations');
 
 Template.form.events({
-  'click #form-submit' : function () {
+  'click button' : function (e, t) {
     // template data, if any, is available in 'this'
-   alert('clicked');
-   var rec = {
-      "name" : template.find('name').value,
-      "phone" : template.find('phone').value,
-      "number" : template.find('number').value,
-      "status" : 0
-    };
-    alert(rec.name);
-    return Reservations.insert({name: "Foo"});
+    var name = t.find('#name').value;
+    var phone = t.find('#phone').value;
+    var num = t.find('#number').value;
+    Reservations.insert({
+      "name" : name,
+      "phone" : phone,
+      "number" : num,
+      "status" : 1
+    });
   }
 });
+
+
 
 /*
  <form>
