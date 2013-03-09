@@ -2,8 +2,27 @@ Template.form.events({
   'click button' : function (e, t) {
     // template data, if any, is available in 'this'
     var name = t.find('#name').value;
-    var phone = t.find('#phone').value;
+    var raw_phone = t.find('#phone').value;
     var num = t.find('#number').value;
+
+    if (!name.length || !raw_phone.length || !num.length) {
+      console.log('nope length')
+      return false;
+    }
+    if ( isNaN( parseInt(num) ) ) {
+      console.log('nope NaN');
+      return false;
+    }
+
+    var regexObj = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+    var goodnum= regexObj.test(raw_phone);
+    if (!!goodnum) {
+      var phone = raw_phone.replace(regexObj, "($1) $2-$3");
+    } else {
+      console.log('nope number');
+      return false;
+    }
+
     Reservations.insert({
       "name" : name,
       "phone" : phone,
