@@ -32,15 +32,18 @@
 <template name="pending">
     <div id="pending-reservations" class="row">
       <h2>Pending Reservations</h2> 
+        {{#each reservations}}
       <div class="four columns">
+      
         <div class="pending-slot">
-          <div class="number-in-party">{{number-in-party}}</div>
+          <div class="number-in-party">{{number}}</div>
           <div class="contact">
-            <div class="name-in-party">{{name-in-party}}</div>
-            <div class="phone-number">{{phone-number}}}</div>
+            <div class="name-in-party">{{name}}</div>
+            <div class="phone-number">{{phone}}}</div>
           </div>
         </div>
       </div>
+        {{/each}}
     </div>
 </template>
 
