@@ -47,18 +47,17 @@
     </div>
 </template>
 
-
-<!--  ############## Confirmed Reservations ##############  -->
 <template name="confirmed">
+<!--  ############## Confirmed Reservations ##############  -->   
     <div id="confirmed-reservations" class="row">
       <h2>Confirmed Reservations</h2>
-      {{#each list}}
+      {{#each slots}}
       <div class="four columns">
-        <div class="confirmed-slot {{disabled}}">
-          <div class="available-percentage" style="width: {{available-percentage}}%;"></div>
-          <div class="time-slot">{{time-slot}}</div>
+        <div class="confirmed-slot">  
+          <div class="available-percentage" style="width: 16%;"></div>
+          <div class="time-slot">{{time}}</div>
           <a href="#" class="list-reservations">Reservations</a> <!-- Anchor class "list-reservations" opens dialog with reservations listed (*Extra Credit*) -->
-          <div class="available-number">{{number}}</div>
+          <div class="available-number">{{avail}} Available</div>
         </div>
       </div>
       {{/each}}

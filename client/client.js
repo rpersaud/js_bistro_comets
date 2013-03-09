@@ -40,25 +40,35 @@ Template.pending.events({
   'click  .pending-slot' : function (evt, tpl) {
     //alert(this._id);
     //Reservations.update({ status: 1 }, {_id: this._id});
-     Reservations.update({ _id: this._id },
+    Session.set('pending', this_id);
+    /*Reservations.update({ _id: this._id },
       {
           $set: { 'status': 1 },
       });
+*/
   },
 
 });
 
 Template.confirmed.list = function() {
   return Reservations.find({status:1});
-
 }
 
 Template.confirmed.events({
   'click .confirmed-slot': function() {
-     Reservations.update({ _id: this._id },
-      {
-          $set: { 'status': 0 },
-      });
+    if (Session.get('pending')) {
+      Timeslots.update(
+        {_id: this._id },
+        { $inc: { 'avail': -1 } }
+      );
+    }
   }
-
 });
+
+Template.confirmed.avail = function() {
+  return Timeslots.findOne({},{avail:1});
+}
+
+Template.confirmed.slots = function() {
+  return Timeslots.find();
+}
