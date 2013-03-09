@@ -1,5 +1,3 @@
-Reservations = new Meteor.Collection('reservations');
-
 Template.form.events({
   'click button' : function (e, t) {
     // template data, if any, is available in 'this'
